@@ -10,6 +10,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/Button";
+
 import Card from "@/components/Card";
 import BenefitCard from "@/components/BenefitCard";
 
@@ -17,13 +18,22 @@ export default function Home() {
   return (
     <div className="relative w-full min-h-screen overflow-x-hidden">
       <section className="relative flex flex-col items-center justify-center h-screen bg-[#BEDBFF] pt-30 overflow-hidden">
+        {/* Retângulo branco centralizado */}
+        <div className="absolute top-[630px] left-1/2 transform -translate-x-1/2 w-[1200px] h-[310px] bg-white shadow-lg flex items-center justify-center z-30">
+          {/* Conteúdo opcional aqui */}
+        </div>
 
-    
+      
+      
 
-    
         {/* Conteúdo principal */}
         <div className="flex flex-col items-center -translate-y-60 z-20">
-        
+          <Button
+            variant="ghost"
+            className="w-[151px] h-[24px] pt-1 pb-1 px-[10px] rounded-full border border-[#FFFFFF] text-sm font-medium"
+          >
+            Sala do futuro <ArrowRight size={18} />
+          </Button>
 
           <h1
             className="font-bold mt-1 text-4xl leading-[42px] text-center"
@@ -33,14 +43,36 @@ export default function Home() {
               color: "#1C398E",
             }}
           >
-            Lorena Dourado 
+            Transformando a Educação
             <br />
-            Beleza, Elegância e Autoestima
+            com Inteligência Artificial e Inclusão
           </h1>
 
-          
+          <p
+            className="text-base leading-6 text-center mt-2"
+            style={{
+              width: "100%",
+              fontFamily: "inter",
+              fontWeight: 600,
+              color: "#155DFC",
+            }}
+          >
+            Monitoramento inteligente para um
+            <br />
+            aprendizado mais humano e acessível.
+          </p>
 
- 
+          <div className="flex justify-center mt-4 gap-2">
+            <Button className="w-[220px] h-[40px] text-sm font-medium bg-[#155DFC] text-white rounded-sm">
+              Assine a nossa newsletter
+            </Button>
+            <Button
+              variant="white"
+              className="w-[120px] h-[40px] text-sm font-medium rounded-sm"
+            >
+              Saiba mais
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -92,14 +124,21 @@ export default function Home() {
           />
         </div>
 
-       
+        <Image
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -mt-[794px] z-50"
+          src="/Vector.png"
+          alt="Fundo decorativo"
+          width={215}
+          height={200}
+          priority
+        />
       </section>
 
       {/* Benefícios e Diferenciais - padding reduzido */}
       <section
         className="relative z-40 bg-white flex flex-col items-center w-full"
         style={{
-          padding: "50px 15px", // <--- reduzido de 80px para 40px
+          padding: "40px 15px", // <--- reduzido de 80px para 40px
         }}
       >
         <h2
@@ -110,43 +149,43 @@ export default function Home() {
             color: "#1C398E",
           }}
         >
-          Serviços
+          Benefícios e Diferenciais
         </h2>
 
         <BenefitCard
-          title="Volume Brasileiro"
-          subtitle=""
-          image="/volume_brasileiro.jpeg"
+          title="Para os alunos"
+          subtitle="A Sala do Futuro foi desenvolvida para atender alunos."
+          image="/image1.png"
           benefits={[
-            "Técnica de extensão de cílios que utiliza fios mais curvados e volumosos.",
-            " Proporciona um olhar marcante, com mais densidade e profundidade.",
-            "Pode durar até 4 semanas com manutenções periódicas, dependendo dos cuidados diários.",
+            "Nossa solução adapta-se às necessidades individuais de cada estudante.",
+            "Promove inclusão, engajamento e desempenho acadêmico.",
+            "Utiliza dados baseados em evidências e biomarcadores.",
           ]}
         />
 
         <BenefitCard
-          title="Fio a Fio"
-          subtitle=""
-          image="/fio_a_fio.jpeg"
+          title="Para os Professores"
+          subtitle="A Sala do Futuro foi desenvolvida para atender professores."
+          image="/image2.png"
           reverse
           benefits={[
-            "Fios ultrafinos aplicados um a um para um efeito incrivelmente natural.",
+            "Informações em tempo real sobre o engajamento.",
             "Mais tempo para focar no ensino.",
             "Apoio na identificação precoce de dificuldades.",
           ]}
         />
 
-        {/* <BenefitCard
+        <BenefitCard
           title="Para os Pais e Responsáveis"
           subtitle="A Sala do Futuro foi desenvolvida para atender os pais."
           image="/image3.png"
           benefits={[
             "Transparência no acompanhamento acadêmico e emocional.",
-            "Leve, sem peso e resistente à água. Permite você acordar já linda, sem preocupações com maquiagem!",
-            "Realça o formato dos seus olhos, dando um efeito de alongamento e um toque de glamour ao seu olhar.",
+            "Relatórios para entender o desenvolvimento do aluno.",
+            "Maior segurança ao ser notificado zsobre presenças e comportamentos atípicos.",
             
           ]}
-        /> */}
+        />
       </section>
 
       {/* FAQ - padding reduzido */}
