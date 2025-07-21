@@ -1,15 +1,9 @@
-//'use client';
-
-import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import Header from "@/components/Header";
-import { metadata } from "./metadata";
-
 import { SchoolProvider } from "@/contexts/SchoolContext";
 
-export { metadata };
-
-// Fonts
+// Fontes do Google
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,6 +20,12 @@ const inter = Inter({
   display: "swap",
 });
 
+// Metadata exportada diretamente (evita erro de build)
+export const metadata = {
+  title: "Portfólio - Lorena Dourado",
+  description: "Site pessoal de Lorena Dourado",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -33,18 +33,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <head />
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased bg-white text-black`}
       >
-        {" "}
-    
-          <SchoolProvider>
-            <Header />
-            {children}
-           
-          </SchoolProvider>
-        
+        <SchoolProvider>
+          <Header />
+          {children}
+        </SchoolProvider>
       </body>
     </html>
   );

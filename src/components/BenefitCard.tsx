@@ -26,7 +26,7 @@ export default function BenefitCard({
       }`}
     >
       {/* Imagem (responsiva) */}
-      <div className="w-full md:w-1/2 h-48 md:h-64 lg:h-72 relative">
+      <div className="w-full md:w-1/2 h-64 md:h-90 lg:h-[400px] relative">
         <Image
           src={image}
           alt={alt}
@@ -55,12 +55,6 @@ export default function BenefitCard({
           ))}
         </ul>
 
-        <Button
-          type="submit"
-          className="w-fit mt-2 px-4 h-9 md:h-10 rounded-md active:opacity-70 text-sm md:text-base"
-        >
-          Saiba mais <ArrowRight size={16} className="ml-1" />
-        </Button>
       </div>
     </div>
   );
