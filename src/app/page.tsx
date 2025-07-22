@@ -162,7 +162,7 @@ export default function Home() {
                 </div>
               </div>,
               <div key={4} className="flex-[0_0_100%] h-full w-full">
-                <div className="relative w-[120%] h-full">
+                <div className="relative w-[110%] h-full ">
                   <Image
                     src="/cartalogo_4.png"
                     alt="Lash Lifting"
@@ -173,7 +173,7 @@ export default function Home() {
                 </div>
               </div>,
               <div key={5} className="flex-[0_0_100%] h-full w-full">
-                <div className="relative w-[110%] h-full">
+                <div className="relative w-[110%] h-full mr-6">
                   <Image
                     src="/cartalogo_5.png"
                     alt="Design de Sobrancelhas"

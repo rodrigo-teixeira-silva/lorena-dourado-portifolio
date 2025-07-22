@@ -35,7 +35,7 @@ export default function About() {
         {/* Imagem à direita */}
         <div className="z-10">
           <img
-            className="h-auto max-w-2xl pt-10"
+            className="h-auto max-w-2xl pt-10 h-auto max-w-2xl pt-10 opacity-80 animate-fadeIn"
             src="/lorena.png"
             alt="image description"
           />
