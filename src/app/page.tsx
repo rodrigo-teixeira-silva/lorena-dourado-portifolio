@@ -8,6 +8,7 @@ import {
   Watch,
   ArrowRight,
   ChevronDown,
+  ChevronUp,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -88,6 +89,65 @@ function Carousel({
 }
 
 export default function Home() {
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setActiveFaqIndex(activeFaqIndex === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "Quanto tempo dura uma aplicação de cílios?",
+      answer:
+        "A aplicação de cílios postiços geralmente dura entre 1h30 a 2h30, dependendo da técnica utilizada e da experiência do profissional.",
+    },
+    {
+      question: "Preciso de algum cuidado especial após a aplicação?",
+      answer:
+        "Sim, recomendamos evitar molhar os cílios nas primeiras 24 horas, não usar maquiagem oleosa na região dos olhos e não esfregar os olhos.",
+    },
+    {
+      question: "Posso usar maquiagem após a aplicação?",
+      answer:
+        "Pode usar maquiagem após 24 horas da aplicação, porém evite produtos oleosos e demaquilantes à base de óleo, pois podem dissolver a cola.",
+    },
+    {
+      question: "Quanto tempo dura o efeito do Lash Lifting?",
+      answer:
+        "O Lash Lifting dura em média de 6 a 8 semanas, que é o tempo natural do ciclo de crescimento dos cílios.",
+    },
+    {
+      question: "Com que frequência devo fazer a manutenção?",
+      answer:
+        "A manutenção deve ser feita a cada 2-3 semanas para repor os cílios que caíram naturalmente e manter o volume uniforme.",
+    },
+    {
+      question: "Os procedimentos são doloridos?",
+      answer:
+        "Não, os procedimentos são indolores. Algumas pessoas podem sentir um leve desconforto no início, mas isso passa rapidamente.",
+    },
+    {
+      question: "Posso fazer se tiver cílios curtos?",
+      answer:
+        "Sim, existem técnicas específicas para cílios curtos. Nossos profissionais podem recomendar a melhor opção para o seu caso.",
+    },
+    {
+      question: "Qual técnica é mais indicada para mim?",
+      answer:
+        "A técnica ideal varia conforme a estrutura dos seus cílios naturais, seu estilo de vida e preferências. Recomendamos uma avaliação personalizada.",
+    },
+    {
+      question: "Preciso fazer teste alérgico antes?",
+      answer:
+        "Sim, especialmente se você tem histórico de alergias. Realizamos um teste 24h antes do procedimento para sua segurança.",
+    },
+    {
+      question: "Como devo preparar meus cílios antes da aplicação?",
+      answer:
+        "Chegue sem maquiagem na região dos olhos, evite usar máscara de cílios no dia do procedimento e lave bem o rosto com um sabonete suave.",
+    },
+  ];
+
   return (
     <div
       className="relative w-full min-h-screen overflow-x-hidden"
@@ -189,7 +249,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="relative z-30 bg-[#EFF6FF] w-full py-12 md:py-16 px-4">
+      {/* <section className="relative z-30 bg-[#EFF6FF] w-full py-12 md:py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-bold text-2xl md:text-3xl text-[#1C398E] font-sans mb-8 md:mb-12">
             Nossos Serviços
@@ -218,7 +278,7 @@ export default function Home() {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Benefits Section */}
       <section className="relative z-40 bg-white flex flex-col items-center w-full py-12 md:py-16 px-4">
@@ -302,41 +362,49 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-8 md:mt-12 w-full max-w-6xl">
           <div className="space-y-4">
-            {[
-              "Quanto tempo dura uma aplicação de cílios?",
-              "Preciso de algum cuidado especial após a aplicação?",
-              "Posso usar maquiagem após a aplicação?",
-              "Quanto tempo dura o efeito do Lash Lifting?",
-              "Com que frequência devo fazer a manutenção?",
-            ].map((text, index) => (
+            {faqs.slice(0, 5).map((faq, index) => (
               <div
                 key={index}
                 className="border border-[#E2E8F0] rounded-lg p-4 bg-[#F8FAFC] hover:bg-[#F1F5F9] transition-colors cursor-pointer"
+                onClick={() => toggleFaq(index)}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[#155DFC] font-medium">{text}</span>
-                  <ChevronDown className="text-[#155DFC]" />
+                  <span className="text-[#155DFC] font-medium">
+                    {faq.question}
+                  </span>
+                  {activeFaqIndex === index ? (
+                    <ChevronUp className="text-[#155DFC]" />
+                  ) : (
+                    <ChevronDown className="text-[#155DFC]" />
+                  )}
                 </div>
+                {activeFaqIndex === index && (
+                  <p className="mt-3 text-[#64748B]">{faq.answer}</p>
+                )}
               </div>
             ))}
           </div>
 
           <div className="space-y-4">
-            {[
-              "Os procedimentos são doloridos?",
-              "Posso fazer se tiver cílios curtos?",
-              "Qual técnica é mais indicada para mim?",
-              "Preciso fazer teste alérgico antes?",
-              "Como devo preparar meus cílios antes da aplicação?",
-            ].map((text, index) => (
+            {faqs.slice(5).map((faq, index) => (
               <div
-                key={index}
+                key={index + 5}
                 className="border border-[#E2E8F0] rounded-lg p-4 bg-[#F8FAFC] hover:bg-[#F1F5F9] transition-colors cursor-pointer"
+                onClick={() => toggleFaq(index + 5)}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[#155DFC] font-medium">{text}</span>
-                  <ChevronDown className="text-[#155DFC]" />
+                  <span className="text-[#155DFC] font-medium">
+                    {faq.question}
+                  </span>
+                  {activeFaqIndex === index + 5 ? (
+                    <ChevronUp className="text-[#155DFC]" />
+                  ) : (
+                    <ChevronDown className="text-[#155DFC]" />
+                  )}
                 </div>
+                {activeFaqIndex === index + 5 && (
+                  <p className="mt-3 text-[#64748B]">{faq.answer}</p>
+                )}
               </div>
             ))}
           </div>
@@ -345,6 +413,7 @@ export default function Home() {
         <Button
           variant="white"
           className="w-full sm:w-auto px-8 py-3 text-sm font-medium mt-8 md:mt-12 rounded-sm hover:bg-[#1C398E] hover:text-white transition-colors"
+          onClick={() => window.open("https://wa.me/559281452595", "_blank")}
         >
           Agendar Consulta
         </Button>
